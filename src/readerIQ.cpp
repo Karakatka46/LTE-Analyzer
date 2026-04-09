@@ -36,5 +36,18 @@ IQ_data readfile(std::string filename, float Fs){
 
     data.samples.reserve(data.NUM_samples);
 
+    for (size_t i = 0; i < n_bytes; i += 2){
+        data.samples.emplace_back(
+            static_cast<float>(raw[i]) / 128.0f, 
+            static_cast<float>(raw[i + 1]) / 128.0f 
+        );
+    }
+    data.NUM_samples = data.samples.size();
+    data.duration = (float)data.NUM_samples / Fs; 
 
+    if (data.samples.empty()) {
+        warning("Файл прочитан, но данных нет (пустой или < 2 байт)");
+    }
+
+    return data;
 }

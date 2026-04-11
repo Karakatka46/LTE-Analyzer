@@ -2,4 +2,5 @@
 
 #include "common.hpp"
 
-std::vector<comfl32> fft_process(IQ_data& data);
+void bitReverse(std::vector<comfl32>& input);
+void fft_forward(std::vector<comfl32>& input);

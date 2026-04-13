@@ -8,6 +8,7 @@ add_executable(lte_analyzer
     src/main.cpp
     src/readerIQ.cpp
     src/fft.cpp
+    src/pss_detector.cpp
 
 )
 
